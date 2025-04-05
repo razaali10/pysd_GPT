@@ -1,1 +1,1 @@
-pip install fastapi uvicorn pysd pandas
+fastapi uvicorn pysd pandas
