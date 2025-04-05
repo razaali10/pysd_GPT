@@ -100,7 +100,10 @@ def run_model(request: RunModelRequest):
             params=request.params or {},
             return_columns=request.returnColumns
         )
-        return results.to_dict(orient="list")
+        if isinstance(results, pd.Series):
+            results = results.to_frame()
+
+        return {col: results[col].tolist() for col in results.columns}
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
