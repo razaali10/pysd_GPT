@@ -151,6 +151,6 @@ def list_models():
     return {"models": list(models.keys())}
 """
 
-path = "/mnt/data/main.py"
+path = "/mnt/main.py"
 Path(path).write_text(updated_code)
 path
